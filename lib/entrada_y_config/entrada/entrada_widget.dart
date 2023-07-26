@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'entrada_model.dart';
@@ -23,6 +24,18 @@ class _EntradaWidgetState extends State<EntradaWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => EntradaModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      if (FFAppState().primeraVez) {
+        return;
+      }
+
+      setDarkModeSetting(context, ThemeMode.system);
+      setState(() {
+        FFAppState().primeraVez = false;
+      });
+    });
   }
 
   @override

@@ -127,7 +127,8 @@ class FFAppState extends ChangeNotifier {
     _ColorGeneral = _value;
   }
 
-  String _logoTempo = '';
+  String _logoTempo =
+      'https://www.rubiconsulting.es/wp-content/uploads/2019/08/Logo2-01.png';
   String get logoTempo => _logoTempo;
   set logoTempo(String _value) {
     _logoTempo = _value;
@@ -139,6 +140,18 @@ class FFAppState extends ChangeNotifier {
   set tempoImagenOscuro(String _value) {
     _tempoImagenOscuro = _value;
     prefs.setString('ff_tempoImagenOscuro', _value);
+  }
+
+  bool _primeraVez = false;
+  bool get primeraVez => _primeraVez;
+  set primeraVez(bool _value) {
+    _primeraVez = _value;
+  }
+
+  String _test = '';
+  String get test => _test;
+  set test(String _value) {
+    _test = _value;
   }
 }
 

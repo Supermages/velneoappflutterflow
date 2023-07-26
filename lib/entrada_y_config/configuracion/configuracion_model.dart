@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -14,10 +15,10 @@ class ConfiguracionModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Stores action output result for [Custom Action - selectImage] action in Image widget.
+  // Stores action output result for [Custom Action - selectImageLightMode] action in Image widget.
   String? caminoImagen;
-  // Stores action output result for [Custom Action - selectImage] action in Image widget.
-  String? caminoImagenOscuro;
+  // Stores action output result for [Custom Action - selectImageDarkMode] action in Image widget.
+  String? selectImageDarkMode;
 
   /// Initialization and disposal methods.
 

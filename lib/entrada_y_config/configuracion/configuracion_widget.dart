@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -159,7 +160,7 @@ class _ConfiguracionWidgetState extends State<ConfiguracionWidget>
                   ),
                   Container(
                     width: MediaQuery.sizeOf(context).width * 0.8,
-                    height: MediaQuery.sizeOf(context).height * 0.1,
+                    height: MediaQuery.sizeOf(context).height * 0.25,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(5.0),
@@ -176,7 +177,8 @@ class _ConfiguracionWidgetState extends State<ConfiguracionWidget>
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onDoubleTap: () async {
-                          _model.caminoImagen = await actions.selectImage();
+                          _model.caminoImagen =
+                              await actions.selectImageLightMode();
                           setState(() {
                             FFAppState().logoTempo = _model.caminoImagen!;
                           });
@@ -185,10 +187,12 @@ class _ConfiguracionWidgetState extends State<ConfiguracionWidget>
                         },
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(3.0),
-                          child: Image.network(
-                            FFAppState().logoTempo,
+                          child: CachedNetworkImage(
+                            fadeInDuration: Duration(milliseconds: 500),
+                            fadeOutDuration: Duration(milliseconds: 500),
+                            imageUrl: FFAppState().logoTempo,
                             width: MediaQuery.sizeOf(context).width * 0.8,
-                            height: MediaQuery.sizeOf(context).height * 0.1,
+                            height: MediaQuery.sizeOf(context).height * 0.25,
                             fit: BoxFit.contain,
                           ),
                         ),
@@ -210,7 +214,7 @@ class _ConfiguracionWidgetState extends State<ConfiguracionWidget>
                   ),
                   Container(
                     width: MediaQuery.sizeOf(context).width * 0.8,
-                    height: MediaQuery.sizeOf(context).height * 0.1,
+                    height: MediaQuery.sizeOf(context).height * 0.25,
                     decoration: BoxDecoration(
                       color: Colors.black,
                       borderRadius: BorderRadius.circular(5.0),
@@ -227,21 +231,23 @@ class _ConfiguracionWidgetState extends State<ConfiguracionWidget>
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onDoubleTap: () async {
-                          _model.caminoImagenOscuro =
-                              await actions.selectImage();
+                          _model.selectImageDarkMode =
+                              await actions.selectImageDarkMode();
                           setState(() {
                             FFAppState().tempoImagenOscuro =
-                                _model.caminoImagenOscuro!;
+                                _model.selectImageDarkMode!;
                           });
 
                           setState(() {});
                         },
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
-                          child: Image.network(
-                            FFAppState().tempoImagenOscuro,
+                          child: CachedNetworkImage(
+                            fadeInDuration: Duration(milliseconds: 500),
+                            fadeOutDuration: Duration(milliseconds: 500),
+                            imageUrl: FFAppState().tempoImagenOscuro,
                             width: MediaQuery.sizeOf(context).width * 0.8,
-                            height: MediaQuery.sizeOf(context).height * 0.1,
+                            height: MediaQuery.sizeOf(context).height * 0.25,
                             fit: BoxFit.contain,
                           ),
                         ),

@@ -68,9 +68,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : EntradaWidget(),
         ),
         FFRoute(
-          name: 'Condiciones',
-          path: '/condiciones',
-          builder: (context, params) => CondicionesWidget(),
+          name: 'CondicionesPartes',
+          path: '/condicionesPartes',
+          builder: (context, params) => CondicionesPartesWidget(),
         ),
         FFRoute(
           name: 'Firma',
@@ -115,6 +115,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'AlbaranesDetalle',
           path: '/albaranesDetalle',
           builder: (context, params) => AlbaranesDetalleWidget(),
+        ),
+        FFRoute(
+          name: 'CondicionesAlbaranes',
+          path: '/condicionesAlbaranes',
+          builder: (context, params) => CondicionesAlbaranesWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

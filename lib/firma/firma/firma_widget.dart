@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -57,7 +58,7 @@ class _FirmaWidgetState extends State<FirmaWidget> {
               size: 28.0,
             ),
             onPressed: () async {
-              context.pushNamed('Condiciones');
+              context.pushNamed('CondicionesPartes');
             },
           ),
           title: Text(
@@ -106,7 +107,67 @@ class _FirmaWidgetState extends State<FirmaWidget> {
                 child: custom_widgets.Signatura(
                   width: double.infinity,
                   height: MediaQuery.sizeOf(context).height * 0.77,
-                  volverAXLugar: () async {},
+                  volverAXLugar: () async {
+                    if (FFAppState().isAlbaranes) {
+                      _model.modificacionAlbaranes =
+                          await ModificacionDeAlbaranesCall.call(
+                        id: FFAppState().ID,
+                        firBas64: FFAppState().img,
+                      );
+                      if ((_model.modificacionAlbaranes?.succeeded ?? true)) {
+                        setState(() {
+                          FFAppState().isAlbaranes = false;
+                        });
+                      } else {
+                        await showDialog(
+                          context: context,
+                          builder: (alertDialogContext) {
+                            return AlertDialog(
+                              title: Text('El post ha fallado.'),
+                              content: Text(
+                                  'Vuelva a intentarlo despues de un rato.'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext),
+                                  child: Text('Ok'),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      }
+                    } else {
+                      _model.modificacionPartes =
+                          await ModificacionDePartesCall.call(
+                        id: FFAppState().ID,
+                        firBas64: FFAppState().img,
+                      );
+                      if (!(_model.modificacionPartes?.succeeded ?? true)) {
+                        await showDialog(
+                          context: context,
+                          builder: (alertDialogContext) {
+                            return AlertDialog(
+                              title: Text('El post ha fallado.'),
+                              content: Text(
+                                  'Vuelva a intentarlo despues de un rato.'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext),
+                                  child: Text('Ok'),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      }
+                    }
+
+                    context.goNamed('Menu');
+
+                    setState(() {});
+                  },
                 ),
               ),
             ],

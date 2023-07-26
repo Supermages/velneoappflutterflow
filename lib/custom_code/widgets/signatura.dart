@@ -51,6 +51,7 @@ class _SignaturaState extends State<Signatura> {
   final GlobalKey<SfSignaturePadState> _signaturePadStateKey = GlobalKey();
   Offset offsetValue = const Offset(0, 0);
   final metodo = const ConvertImages();
+  var imagenDefinitiva = "";
   @override
   Widget build(BuildContext context) {
     return Column(children: [
@@ -118,9 +119,9 @@ class _SignaturaState extends State<Signatura> {
                       "Debes poner tu firma para continuar.",
                     );
                   } else {
-                    await this.widget.volverAXLugar;
                     await convertirImagen(
                         context, _signaturePadStateKey, metodo);
+                    await this.widget.volverAXLugar.call();
                   }
                 },
                 label: Text(
@@ -176,23 +177,12 @@ class _SignaturaState extends State<Signatura> {
     //comprobar si esta vacio o no
     final Uint8List imageBytes = byteData!.buffer
         .asUint8List(byteData.offsetInBytes, byteData.lengthInBytes);
-
-    // if (kIsWeb) {
-    //   var hola = base64.encode(imageBytes);
-    //   AnchorElement(
-    //       href: 'data:application/octet-stream;charset=utf-161e;base64,$hola')
-    //     ..setAttribute('download', 'Firma.png')
-    //     ..click();
-    //   // Decodear base64 a imagen
-    // } else {
     final String path = (await getApplicationSupportDirectory()).path;
     final String fileName = '$path/Firma.png';
     final io.File file = io.File(fileName);
     await file.writeAsBytes(imageBytes, flush: true);
-    OpenFile.open(fileName);
-    FFAppState().img = ConvertImages().convertUbFileBase64(fileName);
-    // }
-    //usar abajo para canviar de pagina
+    imagenDefinitiva = ConvertImages().convertUbFileBase64(fileName);
+    setState(() => FFAppState().img = imagenDefinitiva);
     ;
   }
 

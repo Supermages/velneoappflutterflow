@@ -105,36 +105,38 @@ Locale createLocale(String language) => language.contains('_')
     : Locale(language);
 
 final kTranslationsMap = <Map<String, Map<String, String>>>[
-  // Condiciones
+  // CondicionesPartes
   {
     'g3rnqfku': {
       'es': 'Condiciones',
       'ca': '',
     },
     'nsiji92n': {
-      'es': 'LOPD',
-      'ca': '',
-    },
-    'pswtcnw4': {
-      'es':
-          'Lorem ipsum dolor sit amet consectetur adipiscing elit ridiculus habitasse sodales, aliquet dapibus metus tellus cras nec placerat montes dui, felis porta est pellentesque volutpat faucibus non at habitant. Ac platea sed malesuada mollis leo litora nullam primis, pretium cubilia cum pharetra pulvinar penatibus porttitor ultrices blandit, condimentum laoreet suspendisse ut vitae inceptos congue. Quis praesent senectus ut est himenaeos velit metus, vestibulum cursus litora per faucibus platea commodo, varius odio erat non ridiculus etiam dictum, nulla lobortis curabitur consequat tincidunt donec.\n\nMaecenas aptent elementum vulputate venenatis pellentesque facilisis cubilia malesuada suspendisse mus, primis facilisi eleifend erat cursus mauris ut risus quam. Vivamus lectus leo odio tristique a primis, ad ullamcorper netus et aliquet nostra volutpat, litora parturient etiam convallis curae. Imperdiet nostra diam tellus risus eleifend lacinia tortor viverra urna, ultricies laoreet orci suscipit pulvinar placerat sem vehicula sociosqu, fermentum at class porttitor tempor habitant eget vestibulum. Eu phasellus turpis dictumst sollicitudin eros ad convallis, iaculis ut at parturient volutpat velit neque, bibendum nostra nam semper tellus elementum.\n\nPorttitor fermentum magna placerat hendrerit varius praesent ac hac, semper gravida nulla tempus aenean fringilla aliquet eu congue, neque nec nascetur nam inceptos et enim. Porttitor sem lacinia nam sed rhoncus tempor parturient interdum elementum, torquent ornare vehicula vel pharetra hac fringilla ante semper ad, euismod mattis neque sagittis lectus facilisi nisi tortor porta, faucibus congue convallis sapien id proin praesent nullam. Laoreet urna placerat tincidunt commodo cursus nibh ac habitasse, feugiat dictum rhoncus fusce etiam odio senectus at, suscipit ultrices penatibus enim augue magna egestas. Quis nibh integer aliquet diam dui tellus rutrum vulputate senectus tempus, convallis aptent ridiculus nascetur etiam dictum purus elementum nunc sagittis felis, mauris curabitur justo id conubia non velit fames erat.',
+      'es': 'Tratamiento de datos',
       'ca': '',
     },
     'i7b0hmvp': {
-      'es': 'Condiciones',
+      'es': 'Terminos y Condiciones',
       'ca': '',
     },
-    'gc2oly6e': {
+    'rt4u25vi': {
       'es':
-          'Lorem ipsum dolor sit amet consectetur adipiscing elit ridiculus habitasse sodales, aliquet dapibus metus tellus cras nec placerat montes dui, felis porta est pellentesque volutpat faucibus non at habitant. Ac platea sed malesuada mollis leo litora nullam primis, pretium cubilia cum pharetra pulvinar penatibus porttitor ultrices blandit, condimentum laoreet suspendisse ut vitae inceptos congue. Quis praesent senectus ut est himenaeos velit metus, vestibulum cursus litora per faucibus platea commodo, varius odio erat non ridiculus etiam dictum, nulla lobortis curabitur consequat tincidunt donec.\n\nMaecenas aptent elementum vulputate venenatis pellentesque facilisis cubilia malesuada suspendisse mus, primis facilisi eleifend erat cursus mauris ut risus quam. Vivamus lectus leo odio tristique a primis, ad ullamcorper netus et aliquet nostra volutpat, litora parturient etiam convallis curae. Imperdiet nostra diam tellus risus eleifend lacinia tortor viverra urna, ultricies laoreet orci suscipit pulvinar placerat sem vehicula sociosqu, fermentum at class porttitor tempor habitant eget vestibulum. Eu phasellus turpis dictumst sollicitudin eros ad convallis, iaculis ut at parturient volutpat velit neque, bibendum nostra nam semper tellus elementum.\n\nPorttitor fermentum magna placerat hendrerit varius praesent ac hac, semper gravida nulla tempus aenean fringilla aliquet eu congue, neque nec nascetur nam inceptos et enim. Porttitor sem lacinia nam sed rhoncus tempor parturient interdum elementum, torquent ornare vehicula vel pharetra hac fringilla ante semper ad, euismod mattis neque sagittis lectus facilisi nisi tortor porta, faucibus congue convallis sapien id proin praesent nullam. Laoreet urna placerat tincidunt commodo cursus nibh ac habitasse, feugiat dictum rhoncus fusce etiam odio senectus at, suscipit ultrices penatibus enim augue magna egestas. Quis nibh integer aliquet diam dui tellus rutrum vulputate senectus tempus, convallis aptent ridiculus nascetur etiam dictum purus elementum nunc sagittis felis, mauris curabitur justo id conubia non velit fames erat.',
+          'Acepto el tratamiento de mis datos para el envío de comunicaciones de productos o servicios. \nReglamento (UE) 2016/679 del Parlamento Europeo y del Consejo de 27 de abril de 2016. *',
       'ca': '',
     },
     'cx8pynx1': {
-      'es': 'Acepta los acuerdos de usuario',
+      'es':
+          'Acepto el tratamiento de mis datos para el \nenvío de comunicaciones de productos o servicios. \nReglamento (UE) 2016/679 del Parlamento Europeo \ny del Consejo de 27 de abril de 2016. *',
+      'ca': '',
+    },
+    '8xb68zk8': {
+      'es':
+          'He leído, entiendo, y acepto los términos y condiciones de reparación.',
       'ca': '',
     },
     'ymovdmat': {
-      'es': 'Acepta los términos y condiciones',
+      'es':
+          'He leído, entiendo, y acepto \nlos términos y condiciones de reparación.',
       'ca': '',
     },
     '0qdra2pc': {
@@ -454,6 +456,26 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ca': '',
     },
     '6vjg1zu9': {
+      'es': 'Home',
+      'ca': '',
+    },
+  },
+  // CondicionesAlbaranes
+  {
+    'nddbxier': {
+      'es': 'Condiciones',
+      'ca': '',
+    },
+    'b4zrh2is': {
+      'es':
+          'Certifico que estoy retirando de Gestiomatica\n el material anteriormente detallado.',
+      'ca': '',
+    },
+    'csilccqi': {
+      'es': 'Certificar',
+      'ca': '',
+    },
+    'tsskyu28': {
       'es': 'Home',
       'ca': '',
     },

@@ -13,6 +13,8 @@ class ParteDetalleModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Backend Call - API (Modificacion de partes)] action in ImagenGaleria widget.
+  ApiCallResponse? apiResult3pc;
 
   /// Initialization and disposal methods.
 

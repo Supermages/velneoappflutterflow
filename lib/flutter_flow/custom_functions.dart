@@ -17,7 +17,7 @@ List<dynamic> buscador(
   List<dynamic> jsonReturn = [];
   if (busqueda == null || busqueda == "") {
     for (dynamic item in jsonList) {
-      if (item["ES_FIR"] == false) {
+      if (item["ES_FIR"] == false && item["FCH"].startsWith("2023")) {
         jsonReturn.add(item);
       }
     }
@@ -26,12 +26,15 @@ List<dynamic> buscador(
     // Filtra el contenido de JSON a jsonLists
 
     for (dynamic item in jsonList) {
-      if (item["ES_FIR"] == false) {
+      if (item["ES_FIR"] == false && item["FCH"].startsWith("2023")) {
         String _clt = "${item["CLT"]}".toLowerCase();
-        String _id = "${item["ID"]}";
+        String _num_pt = "${item["NUM_PT"]}";
+        String _num_alb = "${item["NUM_ALB"]}";
         if (_clt.contains(busqueda.toLowerCase())) {
           jsonReturn.add(item);
-        } else if (_id.contains(busqueda)) {
+        } else if (_num_pt.contains(busqueda)) {
+          jsonReturn.add(item);
+        } else if (_num_alb.contains(busqueda)) {
           jsonReturn.add(item);
         }
       }
@@ -46,8 +49,4 @@ int calculoPantalla(
   double screenHeight,
 ) {
   return screenHeight.toInt() - restar;
-}
-
-String newCustomFunction(String patata) {
-  return patata;
 }

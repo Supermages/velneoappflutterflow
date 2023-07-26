@@ -859,7 +859,7 @@ class _AlbaranesDetalleWidgetState extends State<AlbaranesDetalleWidget> {
                         EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        context.pushNamed('Condiciones');
+                        context.pushNamed('CondicionesAlbaranes');
                       },
                       text: FFLocalizations.of(context).getText(
                         '6nyipsgs' /* Firmar */,

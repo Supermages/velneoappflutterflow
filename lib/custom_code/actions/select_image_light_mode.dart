@@ -11,13 +11,16 @@ import 'package:image_picker/image_picker.dart';
 
 String result = "ejemplo";
 
-Future<String> selectImage() async {
+Future<String> selectImageLightMode() async {
   final XFile? file = await ImagePicker().pickImage(
     source: ImageSource.gallery,
     imageQuality: 10,
   );
-  result = file?.path ?? '';
-  return result;
+
+  FFAppState().update(() {
+    FFAppState().logoTempo = file?.path ?? "";
+  });
+  return file?.path ?? '';
 }
 // Set your action name, define your arguments and return parameter,
 // and then add the boilerplate code using the button on the right!
