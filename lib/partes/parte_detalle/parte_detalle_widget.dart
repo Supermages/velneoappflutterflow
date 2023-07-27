@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -51,12 +52,11 @@ class _ParteDetalleWidgetState extends State<ParteDetalleWidget> {
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             body: Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
-                child: CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(
-                    FlutterFlowTheme.of(context).primary,
-                  ),
+                width: 40.0,
+                height: 40.0,
+                child: SpinKitFadingCircle(
+                  color: Color(0xFF604EE8),
+                  size: 40.0,
                 ),
               ),
             ),
@@ -83,7 +83,7 @@ class _ParteDetalleWidgetState extends State<ParteDetalleWidget> {
                   size: 28.0,
                 ),
                 onPressed: () async {
-                  context.safePop();
+                  context.goNamed('Partes');
                 },
               ),
               title: Padding(
@@ -1512,7 +1512,7 @@ class _ParteDetalleWidgetState extends State<ParteDetalleWidget> {
                                                               id: FFAppState()
                                                                   .ID,
                                                               esFir: 0,
-                                                              img2: FFAppState()
+                                                              img3: FFAppState()
                                                                   .img,
                                                             );
                                                             _shouldSetState =
@@ -1628,7 +1628,7 @@ class _ParteDetalleWidgetState extends State<ParteDetalleWidget> {
                                                               id: FFAppState()
                                                                   .ID,
                                                               esFir: 0,
-                                                              img2: FFAppState()
+                                                              img4: FFAppState()
                                                                   .img,
                                                             );
                                                             _shouldSetState =

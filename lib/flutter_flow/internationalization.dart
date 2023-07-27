@@ -115,10 +115,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Tratamiento de datos',
       'ca': '',
     },
-    'i7b0hmvp': {
-      'es': 'Terminos y Condiciones',
-      'ca': '',
-    },
     'rt4u25vi': {
       'es':
           'Acepto el tratamiento de mis datos para el envío de comunicaciones de productos o servicios. \nReglamento (UE) 2016/679 del Parlamento Europeo y del Consejo de 27 de abril de 2016. *',
@@ -127,6 +123,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'cx8pynx1': {
       'es':
           'Acepto el tratamiento de mis datos para el \nenvío de comunicaciones de productos o servicios. \nReglamento (UE) 2016/679 del Parlamento Europeo \ny del Consejo de 27 de abril de 2016. *',
+      'ca': '',
+    },
+    'i7b0hmvp': {
+      'es': 'Términos y Condiciones',
       'ca': '',
     },
     '8xb68zk8': {
@@ -141,6 +141,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '0qdra2pc': {
       'es': 'Aceptar',
+      'ca': '',
+    },
+    'dcy2zp83': {
+      'es': 'Esta cargando...',
       'ca': '',
     },
     'w6fu2mvf': {

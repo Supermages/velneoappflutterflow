@@ -58,32 +58,33 @@ class _CondicionesAlbaranesWidgetState
               size: 28.0,
             ),
             onPressed: () async {
-              if (FFAppState().isAlbaranes) {
-                context.pushNamed(
-                  'Albaranes',
-                  extra: <String, dynamic>{
-                    kTransitionInfoKey: TransitionInfo(
-                      hasTransition: true,
-                      transitionType: PageTransitionType.bottomToTop,
-                    ),
-                  },
-                );
-              } else {
-                context.pushNamed(
-                  'Partes',
-                  extra: <String, dynamic>{
-                    kTransitionInfoKey: TransitionInfo(
-                      hasTransition: true,
-                      transitionType: PageTransitionType.bottomToTop,
-                    ),
-                  },
-                );
+              var confirmDialogResponse = await showDialog<bool>(
+                    context: context,
+                    builder: (alertDialogContext) {
+                      return AlertDialog(
+                        title: Text('Alerta'),
+                        content: Text(
+                            '¿Esta seguro que quiere retroceder? Se cancelara el proceso de firma.'),
+                        actions: [
+                          TextButton(
+                            onPressed: () =>
+                                Navigator.pop(alertDialogContext, false),
+                            child: Text('No'),
+                          ),
+                          TextButton(
+                            onPressed: () =>
+                                Navigator.pop(alertDialogContext, true),
+                            child: Text('Si'),
+                          ),
+                        ],
+                      );
+                    },
+                  ) ??
+                  false;
+              if (!confirmDialogResponse) {
+                return;
               }
-
-              setState(() {
-                FFAppState().Condicion1 = false;
-                FFAppState().Condicion2 = false;
-              });
+              context.safePop();
             },
           ),
           title: Text(
@@ -138,7 +139,7 @@ class _CondicionesAlbaranesWidgetState
                           10.0, 20.0, 10.0, 10.0),
                       child: FFButtonWidget(
                         onPressed: () async {
-                          context.pushNamed(
+                          context.goNamed(
                             'Firma',
                             extra: <String, dynamic>{
                               kTransitionInfoKey: TransitionInfo(

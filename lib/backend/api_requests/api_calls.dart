@@ -244,7 +244,7 @@ class ListaDeAlbaranesCall {
 
 class DetalleDeAlbaranesCall {
   static Future<ApiCallResponse> call({
-    int? id = 1,
+    int? id = 70,
   }) {
     return ApiManager.instance.makeApiCall(
       callName: 'Detalle de albaranes',
@@ -294,22 +294,27 @@ class DetalleDeAlbaranesCall {
   static dynamic cantidad(dynamic response) => getJsonField(
         response,
         r'''$.DetAlb[:].LIN[:].CAN''',
+        true,
       );
   static dynamic idLinea(dynamic response) => getJsonField(
         response,
         r'''$.DetAlb[:].LIN[:].ID''',
+        true,
       );
   static dynamic porcentajeDescuento(dynamic response) => getJsonField(
         response,
         r'''$.DetAlb[:].LIN[:].POR_DTO''',
+        true,
       );
   static dynamic precio(dynamic response) => getJsonField(
         response,
         r'''$.DetAlb[:].LIN[:].PRE''',
+        true,
       );
   static dynamic sku(dynamic response) => getJsonField(
         response,
         r'''$.DetAlb[:].LIN[:].SKU''',
+        true,
       );
   static dynamic numeroDeAlbaran(dynamic response) => getJsonField(
         response,
@@ -318,6 +323,15 @@ class DetalleDeAlbaranesCall {
   static dynamic totalAlbaran(dynamic response) => getJsonField(
         response,
         r'''$.DetAlb[:].TOT_ALB''',
+      );
+  static dynamic firmaBase64(dynamic response) => getJsonField(
+        response,
+        r'''$.DetAlb[:].FIR_BAS_64''',
+      );
+  static dynamic descripcion(dynamic response) => getJsonField(
+        response,
+        r'''$.DetAlb[:].LIN[:].DSC_EDT''',
+        true,
       );
 }
 

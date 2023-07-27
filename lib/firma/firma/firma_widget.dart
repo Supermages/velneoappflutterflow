@@ -58,7 +58,37 @@ class _FirmaWidgetState extends State<FirmaWidget> {
               size: 28.0,
             ),
             onPressed: () async {
-              context.pushNamed('CondicionesPartes');
+              var confirmDialogResponse = await showDialog<bool>(
+                    context: context,
+                    builder: (alertDialogContext) {
+                      return AlertDialog(
+                        title: Text('Alerta'),
+                        content: Text(
+                            '¿Esta seguro que quiere retroceder? Se cancelara el proceso de firma.'),
+                        actions: [
+                          TextButton(
+                            onPressed: () =>
+                                Navigator.pop(alertDialogContext, false),
+                            child: Text('No'),
+                          ),
+                          TextButton(
+                            onPressed: () =>
+                                Navigator.pop(alertDialogContext, true),
+                            child: Text('Si'),
+                          ),
+                        ],
+                      );
+                    },
+                  ) ??
+                  false;
+              if (!confirmDialogResponse) {
+                return;
+              }
+              if (FFAppState().isAlbaranes) {
+                context.goNamed('AlbaranesDetalle');
+              } else {
+                context.goNamed('ParteDetalle');
+              }
             },
           ),
           title: Text(
@@ -108,12 +138,41 @@ class _FirmaWidgetState extends State<FirmaWidget> {
                   width: double.infinity,
                   height: MediaQuery.sizeOf(context).height * 0.77,
                   volverAXLugar: () async {
+                    var _shouldSetState = false;
                     if (FFAppState().isAlbaranes) {
+                      var confirmDialogResponse = await showDialog<bool>(
+                            context: context,
+                            builder: (alertDialogContext) {
+                              return AlertDialog(
+                                title: Text('Confirmación'),
+                                content: Text(
+                                    '¿Esta seguro que su firma esta correcta?'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () => Navigator.pop(
+                                        alertDialogContext, false),
+                                    child: Text('No'),
+                                  ),
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext, true),
+                                    child: Text('Si'),
+                                  ),
+                                ],
+                              );
+                            },
+                          ) ??
+                          false;
+                      if (!confirmDialogResponse) {
+                        if (_shouldSetState) setState(() {});
+                        return;
+                      }
                       _model.modificacionAlbaranes =
                           await ModificacionDeAlbaranesCall.call(
                         id: FFAppState().ID,
                         firBas64: FFAppState().img,
                       );
+                      _shouldSetState = true;
                       if ((_model.modificacionAlbaranes?.succeeded ?? true)) {
                         setState(() {
                           FFAppState().isAlbaranes = false;
@@ -138,12 +197,40 @@ class _FirmaWidgetState extends State<FirmaWidget> {
                         );
                       }
                     } else {
+                      var confirmDialogResponse = await showDialog<bool>(
+                            context: context,
+                            builder: (alertDialogContext) {
+                              return AlertDialog(
+                                title: Text('Confirmación'),
+                                content: Text(
+                                    '¿Esta seguro que su firma esta correcta?'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () => Navigator.pop(
+                                        alertDialogContext, false),
+                                    child: Text('No'),
+                                  ),
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext, true),
+                                    child: Text('Si'),
+                                  ),
+                                ],
+                              );
+                            },
+                          ) ??
+                          false;
+                      if (!confirmDialogResponse) {
+                        if (_shouldSetState) setState(() {});
+                        return;
+                      }
                       _model.modificacionPartes =
                           await ModificacionDePartesCall.call(
                         id: FFAppState().ID,
                         firBas64: FFAppState().img,
                         esFir: 1,
                       );
+                      _shouldSetState = true;
                       if (!(_model.modificacionPartes?.succeeded ?? true)) {
                         await showDialog(
                           context: context,
@@ -167,7 +254,7 @@ class _FirmaWidgetState extends State<FirmaWidget> {
 
                     context.goNamed('Menu');
 
-                    setState(() {});
+                    if (_shouldSetState) setState(() {});
                   },
                 ),
               ),

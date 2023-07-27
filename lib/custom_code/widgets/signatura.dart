@@ -61,7 +61,7 @@ class _SignaturaState extends State<Signatura> {
           height: MediaQuery.of(context).size.height * 0.585,
           child: SfSignaturePad(
             key: _signaturePadStateKey,
-            backgroundColor: Colors.grey,
+            backgroundColor: Colors.white,
             strokeColor: Colors.black,
             minimumStrokeWidth: 2.5,
             maximumStrokeWidth: 3.0,

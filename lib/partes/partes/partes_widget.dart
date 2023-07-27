@@ -7,6 +7,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'partes_model.dart';
@@ -68,7 +69,7 @@ class _PartesWidgetState extends State<PartesWidget> {
               size: 28.0,
             ),
             onPressed: () async {
-              context.pushNamed(
+              context.goNamed(
                 'Menu',
                 extra: <String, dynamic>{
                   kTransitionInfoKey: TransitionInfo(
@@ -242,12 +243,11 @@ class _PartesWidgetState extends State<PartesWidget> {
                           if (!snapshot.hasData) {
                             return Center(
                               child: SizedBox(
-                                width: 50.0,
-                                height: 50.0,
-                                child: CircularProgressIndicator(
-                                  valueColor: AlwaysStoppedAnimation<Color>(
-                                    FlutterFlowTheme.of(context).primary,
-                                  ),
+                                width: 40.0,
+                                height: 40.0,
+                                child: SpinKitFadingCircle(
+                                  color: Color(0xFF604EE8),
+                                  size: 40.0,
                                 ),
                               ),
                             );

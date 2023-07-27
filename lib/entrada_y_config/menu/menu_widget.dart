@@ -92,7 +92,7 @@ class _MenuWidgetState extends State<MenuWidget> {
                 return;
               }
 
-              context.pushNamed('Entrada');
+              context.goNamed('Entrada');
             },
           ),
           title: Text(

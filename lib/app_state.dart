@@ -21,6 +21,14 @@ class FFAppState extends ChangeNotifier {
       _tempoImagenOscuro =
           prefs.getString('ff_tempoImagenOscuro') ?? _tempoImagenOscuro;
     });
+    _safeInit(() {
+      _terminosYCondiciones =
+          prefs.getString('ff_terminosYCondiciones') ?? _terminosYCondiciones;
+    });
+    _safeInit(() {
+      _tratamientoDeDatos =
+          prefs.getString('ff_tratamientoDeDatos') ?? _tratamientoDeDatos;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -135,7 +143,8 @@ class FFAppState extends ChangeNotifier {
     prefs.setString('ff_logoTempo', _value);
   }
 
-  String _tempoImagenOscuro = '';
+  String _tempoImagenOscuro =
+      'https://www.rubiconsulting.es/wp-content/uploads/2019/12/logo_blanco.png';
   String get tempoImagenOscuro => _tempoImagenOscuro;
   set tempoImagenOscuro(String _value) {
     _tempoImagenOscuro = _value;
@@ -152,6 +161,26 @@ class FFAppState extends ChangeNotifier {
   String get test => _test;
   set test(String _value) {
     _test = _value;
+  }
+
+  String _terminosYCondiciones = '';
+  String get terminosYCondiciones => _terminosYCondiciones;
+  set terminosYCondiciones(String _value) {
+    _terminosYCondiciones = _value;
+    prefs.setString('ff_terminosYCondiciones', _value);
+  }
+
+  String _tratamientoDeDatos = '';
+  String get tratamientoDeDatos => _tratamientoDeDatos;
+  set tratamientoDeDatos(String _value) {
+    _tratamientoDeDatos = _value;
+    prefs.setString('ff_tratamientoDeDatos', _value);
+  }
+
+  bool _estaCargando = false;
+  bool get estaCargando => _estaCargando;
+  set estaCargando(bool _value) {
+    _estaCargando = _value;
   }
 }
 
