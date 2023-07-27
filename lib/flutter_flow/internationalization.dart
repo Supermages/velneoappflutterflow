@@ -184,10 +184,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Buscar...',
       'ca': '',
     },
-    '5m0b2wc1': {
-      'es': 'ID: ',
-      'ca': '',
-    },
     'n9rp9k53': {
       'es': 'Nº de parte: ',
       'ca': '',
@@ -213,10 +209,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'azpdi51a': {
       'es': 'Datos Generales',
-      'ca': '',
-    },
-    '9a3vswyw': {
-      'es': 'ID:',
       'ca': '',
     },
     '8op31q07': {
@@ -368,10 +360,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Buscar...',
       'ca': '',
     },
-    'mo4ne054': {
-      'es': 'ID: ',
-      'ca': '',
-    },
     'svke7nl3': {
       'es': 'Nº Albarán: ',
       'ca': '',
@@ -407,10 +395,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Datos generales',
       'ca': '',
     },
-    '1hisvpz2': {
-      'es': 'ID:',
-      'ca': '',
-    },
     'g8k1xswa': {
       'es': 'Fecha:',
       'ca': '',
@@ -428,7 +412,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ca': '',
     },
     '7f8ybss0': {
-      'es': 'Descripcion:',
+      'es': 'Descripción:',
       'ca': '',
     },
     'oa93mhbe': {
@@ -482,6 +466,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // Miscellaneous
   {
+    'weywe8xs': {
+      'es': 'Necesitamos utilizar su camara para las imagenes del parte.',
+      'ca': '',
+    },
+    '7104kjmw': {
+      'es':
+          'Necesitamos utilizar su libreria de fotos para seleccionar las imagenes del parte.',
+      'ca': '',
+    },
+    '0dl8cazh': {
+      'es': 'Necesitamos este permiso para poder cargar bien las imagenes.',
+      'ca': '',
+    },
     'nywwcxn9': {
       'es': '',
       'ca': '',

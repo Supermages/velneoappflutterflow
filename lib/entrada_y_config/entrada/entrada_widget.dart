@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -33,7 +34,7 @@ class _EntradaWidgetState extends State<EntradaWidget> {
 
       setDarkModeSetting(context, ThemeMode.system);
       setState(() {
-        FFAppState().primeraVez = false;
+        FFAppState().primeraVez = true;
       });
     });
   }
@@ -86,86 +87,125 @@ class _EntradaWidgetState extends State<EntradaWidget> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                width: MediaQuery.sizeOf(context).width * 1.0,
-                height: MediaQuery.sizeOf(context).height * 0.8,
-                child: Stack(
-                  children: [
-                    if (Theme.of(context).brightness == Brightness.light)
+              Align(
+                alignment: AlignmentDirectional(0.0, 0.0),
+                child: Container(
+                  width: MediaQuery.sizeOf(context).width * 0.8,
+                  height: MediaQuery.sizeOf(context).height * 0.8,
+                  child: Stack(
+                    children: [
                       Align(
-                        alignment: AlignmentDirectional(-0.02, -0.93),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: Image.network(
-                            FFAppState().logoTempo,
-                            width: MediaQuery.sizeOf(context).width * 0.8,
-                            height: MediaQuery.sizeOf(context).height * 0.1,
-                            fit: BoxFit.contain,
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            context.pushNamed(
+                              'Menu',
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType:
+                                      PageTransitionType.rightToLeft,
+                                ),
+                              },
+                            );
+                          },
+                          text: FFLocalizations.of(context).getText(
+                            'zw4oc19v' /* Entrar */,
+                          ),
+                          icon: Icon(
+                            Icons.login,
+                            color: FlutterFlowTheme.of(context).primaryBtnText,
+                            size: 50.0,
+                          ),
+                          options: FFButtonOptions(
+                            width: 275.0,
+                            height: 78.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: colorFromCssString(
+                              FFAppState().ColorGeneral,
+                              defaultColor: Color(0xFF464D53),
+                            ),
+                            textStyle: FlutterFlowTheme.of(context)
+                                .displayMedium
+                                .override(
+                                  fontFamily: 'Outfit',
+                                  color: Colors.white,
+                                ),
+                            elevation: 3.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
                         ),
                       ),
-                    Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          context.pushNamed(
-                            'Menu',
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.rightToLeft,
+                      Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          if (Theme.of(context).brightness == Brightness.light)
+                            Align(
+                              alignment: AlignmentDirectional(0.0, -1.0),
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 0.8,
+                                height: MediaQuery.sizeOf(context).height * 0.1,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 0.8,
+                                    height: MediaQuery.sizeOf(context).height *
+                                        0.15,
+                                    child: custom_widgets.ImagenEntradaBlanco(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.8,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.15,
+                                    ),
+                                  ),
+                                ),
                               ),
-                            },
-                          );
-                        },
-                        text: FFLocalizations.of(context).getText(
-                          'zw4oc19v' /* Entrar */,
-                        ),
-                        icon: Icon(
-                          Icons.login,
-                          color: FlutterFlowTheme.of(context).primaryBtnText,
-                          size: 50.0,
-                        ),
-                        options: FFButtonOptions(
-                          width: 275.0,
-                          height: 78.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: colorFromCssString(
-                            FFAppState().ColorGeneral,
-                            defaultColor: Color(0xFF464D53),
-                          ),
-                          textStyle: FlutterFlowTheme.of(context)
-                              .displayMedium
-                              .override(
-                                fontFamily: 'Outfit',
-                                color: Colors.white,
+                            ),
+                          if (Theme.of(context).brightness == Brightness.dark)
+                            Align(
+                              alignment: AlignmentDirectional(0.0, -1.0),
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 0.8,
+                                height: MediaQuery.sizeOf(context).height * 0.1,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, -1.0),
+                                  child: Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 0.8,
+                                    height: MediaQuery.sizeOf(context).height *
+                                        0.15,
+                                    child: custom_widgets.ImagenEntradaNegro(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.8,
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.15,
+                                    ),
+                                  ),
+                                ),
                               ),
-                          elevation: 3.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
-                          ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
+                            ),
+                        ],
                       ),
-                    ),
-                    if (Theme.of(context).brightness == Brightness.dark)
-                      Align(
-                        alignment: AlignmentDirectional(-0.02, -0.93),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: Image.network(
-                            FFAppState().tempoImagenOscuro,
-                            width: MediaQuery.sizeOf(context).width * 0.8,
-                            height: MediaQuery.sizeOf(context).height * 0.1,
-                            fit: BoxFit.contain,
-                          ),
-                        ),
-                      ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ],

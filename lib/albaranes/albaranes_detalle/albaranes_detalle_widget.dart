@@ -220,57 +220,6 @@ class _AlbaranesDetalleWidgetState extends State<AlbaranesDetalleWidget> {
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          '1hisvpz2' /* ID: */,
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      getJsonField(
-                                                        albaranDetalleItem,
-                                                        r'''$.ID''',
-                                                      ).toString(),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 10.0, 10.0, 0.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  5.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
                                                           'g8k1xswa' /* Fecha: */,
                                                         ),
                                                         style:
@@ -590,7 +539,7 @@ class _AlbaranesDetalleWidgetState extends State<AlbaranesDetalleWidget> {
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    '7f8ybss0' /* Descripcion: */,
+                                                                    '7f8ybss0' /* Descripción: */,
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -801,7 +750,7 @@ class _AlbaranesDetalleWidgetState extends State<AlbaranesDetalleWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 20.0, 10.0, 0.0),
+                                                  10.0, 20.0, 10.0, 10.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:

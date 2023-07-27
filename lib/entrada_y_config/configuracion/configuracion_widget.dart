@@ -4,7 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
-import 'package:cached_network_image/cached_network_image.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -169,32 +169,14 @@ class _ConfiguracionWidgetState extends State<ConfiguracionWidget>
                       ),
                     ),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          10.0, 10.0, 10.0, 10.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onDoubleTap: () async {
-                          _model.caminoImagen =
-                              await actions.selectImageLightMode();
-                          setState(() {
-                            FFAppState().logoTempo = _model.caminoImagen!;
-                          });
-
-                          setState(() {});
-                        },
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(3.0),
-                          child: CachedNetworkImage(
-                            fadeInDuration: Duration(milliseconds: 500),
-                            fadeOutDuration: Duration(milliseconds: 500),
-                            imageUrl: FFAppState().logoTempo,
-                            width: MediaQuery.sizeOf(context).width * 0.8,
-                            height: MediaQuery.sizeOf(context).height * 0.25,
-                            fit: BoxFit.contain,
-                          ),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                      child: Container(
+                        width: MediaQuery.sizeOf(context).width * 0.8,
+                        height: MediaQuery.sizeOf(context).height * 0.25,
+                        child: custom_widgets.ImagenGaleriaLogoBlanco(
+                          width: MediaQuery.sizeOf(context).width * 0.8,
+                          height: MediaQuery.sizeOf(context).height * 0.25,
                         ),
                       ),
                     ),
@@ -223,33 +205,14 @@ class _ConfiguracionWidgetState extends State<ConfiguracionWidget>
                       ),
                     ),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          10.0, 10.0, 10.0, 10.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onDoubleTap: () async {
-                          _model.selectImageDarkMode =
-                              await actions.selectImageDarkMode();
-                          setState(() {
-                            FFAppState().tempoImagenOscuro =
-                                _model.selectImageDarkMode!;
-                          });
-
-                          setState(() {});
-                        },
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: CachedNetworkImage(
-                            fadeInDuration: Duration(milliseconds: 500),
-                            fadeOutDuration: Duration(milliseconds: 500),
-                            imageUrl: FFAppState().tempoImagenOscuro,
-                            width: MediaQuery.sizeOf(context).width * 0.8,
-                            height: MediaQuery.sizeOf(context).height * 0.25,
-                            fit: BoxFit.contain,
-                          ),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                      child: Container(
+                        width: MediaQuery.sizeOf(context).width * 0.8,
+                        height: MediaQuery.sizeOf(context).height * 0.25,
+                        child: custom_widgets.ImagenGaleriaLogoNegro(
+                          width: MediaQuery.sizeOf(context).width * 0.8,
+                          height: MediaQuery.sizeOf(context).height * 0.25,
                         ),
                       ),
                     ),

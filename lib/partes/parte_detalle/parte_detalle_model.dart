@@ -14,7 +14,13 @@ class ParteDetalleModel extends FlutterFlowModel {
 
   final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (Modificacion de partes)] action in ImagenGaleria widget.
+  ApiCallResponse? apiResult1pc;
+  // Stores action output result for [Backend Call - API (Modificacion de partes)] action in ImagenGaleria2 widget.
+  ApiCallResponse? apiResult2pc;
+  // Stores action output result for [Backend Call - API (Modificacion de partes)] action in ImagenGaleria3 widget.
   ApiCallResponse? apiResult3pc;
+  // Stores action output result for [Backend Call - API (Modificacion de partes)] action in ImagenGaleria4 widget.
+  ApiCallResponse? apiResult4pc;
 
   /// Initialization and disposal methods.
 

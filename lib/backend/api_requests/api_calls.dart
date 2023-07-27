@@ -159,7 +159,7 @@ class ListaDePartesCall {
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
-      cache: true,
+      cache: false,
     );
   }
 
@@ -355,8 +355,8 @@ class ModificacionDeAlbaranesCall {
 class ModificacionDePartesCall {
   static Future<ApiCallResponse> call({
     String? firBas64 = '',
-    int? id = 1771,
-    String? img1 = 'asd',
+    int? id = 1766,
+    String? img1 = '',
     String? img2 = '',
     String? img3 = '',
     String? img4 = '',

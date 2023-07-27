@@ -142,6 +142,7 @@ class _FirmaWidgetState extends State<FirmaWidget> {
                           await ModificacionDePartesCall.call(
                         id: FFAppState().ID,
                         firBas64: FFAppState().img,
+                        esFir: 1,
                       );
                       if (!(_model.modificacionPartes?.succeeded ?? true)) {
                         await showDialog(

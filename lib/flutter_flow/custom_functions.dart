@@ -21,6 +21,7 @@ List<dynamic> buscador(
         jsonReturn.add(item);
       }
     }
+    jsonList == [null];
     return jsonReturn;
   } else {
     // Filtra el contenido de JSON a jsonLists

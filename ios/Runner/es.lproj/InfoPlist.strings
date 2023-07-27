@@ -1,1 +1,3 @@
-
+NSCameraUsageDescription = "Necesitamos utilizar su camara para las imagenes del parte.";
+NSPhotoLibraryUsageDescription = "Necesitamos utilizar su libreria de fotos para seleccionar las imagenes del parte.";
+ = "Necesitamos este permiso para poder cargar bien las imagenes.";

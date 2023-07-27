@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>velneoapp</string>
+	<string>Velneo App</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -48,7 +48,10 @@
 	<true/>
 
 
-
+	<key>NSCameraUsageDescription</key>
+    <string>Necesitamos utilizar su camara para las imagenes del parte.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+    <string>Necesitamos utilizar su libreria de fotos para seleccionar las imagenes del parte.</string>
 
 
 	<key>UILaunchStoryboardName</key>
