@@ -40,12 +40,14 @@ class ImagenGaleriaLogoNegro extends StatefulWidget {
 class _ImagenGaleriaLogoNegroState extends State<ImagenGaleriaLogoNegro> {
   @override
   void initState() {
+    // Inicia la funcion inicioDeArchivo nada mas se inicie la construccion del widget.
     inicioDeArchivo();
     super.initState();
   }
 
   @override
   void dispose() {
+    // Saca todo lo que contenga la variable archivo
     archivo = null;
     super.dispose();
   }
@@ -61,6 +63,7 @@ class _ImagenGaleriaLogoNegroState extends State<ImagenGaleriaLogoNegro> {
         await selectImage();
         setState(() {});
       },
+      // Seleccionamos la imagen segun si logoTempo esta vacio
       icon: FFAppState().tempoImagenOscuro == null
           ? Image.file(
               archivo!,
@@ -74,20 +77,21 @@ class _ImagenGaleriaLogoNegroState extends State<ImagenGaleriaLogoNegro> {
   }
 
   void inicioDeArchivo() async {
+    // Definimos el archivo predeterminado
     archivo = File(
         "https://www.rubiconsulting.es/wp-content/uploads/2019/12/logo_blanco.png");
   }
 
   Future<void> selectImage() async {
+    // Definimos las variables
     selectedImagePath = await selectImageFromGallery();
     if (selectedImagePath.isNotEmpty) {
       try {
-        FFAppState().update(() {
-          FFAppState().test = selectedImagePath;
-        });
+        // Esto hace update a los AppState, para que se puedan guardar. Ademas de activar la funcion.
         FFAppState().update(() {
           FFAppState().tempoImagenOscuro = selectedImagePath;
         });
+        // Pone el resultado de la funcion.
         setState(() {});
       } catch (e) {
         print("Error: $e");
@@ -101,10 +105,12 @@ class _ImagenGaleriaLogoNegroState extends State<ImagenGaleriaLogoNegro> {
   }
 
   Future<String> selectImageFromGallery() async {
+    // Esto abre la galeria y te da la posibilidad de seleccionar la imagen
     final XFile? file = await ImagePicker().pickImage(
       source: ImageSource.gallery,
       imageQuality: 10,
     );
+    // Despues, retorna el camino a tu imagen en tu dispositivo.
     return file?.path ?? "";
   }
 }

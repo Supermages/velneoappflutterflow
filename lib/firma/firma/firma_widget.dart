@@ -133,10 +133,10 @@ class _FirmaWidgetState extends State<FirmaWidget> {
               ),
               Container(
                 width: double.infinity,
-                height: MediaQuery.sizeOf(context).height * 0.77,
+                height: MediaQuery.sizeOf(context).height * 0.6,
                 child: custom_widgets.Signatura(
                   width: double.infinity,
-                  height: MediaQuery.sizeOf(context).height * 0.77,
+                  height: MediaQuery.sizeOf(context).height * 0.6,
                   volverAXLugar: () async {
                     var _shouldSetState = false;
                     if (FFAppState().isAlbaranes) {

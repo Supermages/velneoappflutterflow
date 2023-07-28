@@ -440,7 +440,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ca': '',
     },
     '22s9bzjd': {
-      'es': 'Albaranes',
+      'es': 'Albarán:',
       'ca': '',
     },
     '6vjg1zu9': {

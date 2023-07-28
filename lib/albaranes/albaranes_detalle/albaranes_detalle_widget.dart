@@ -92,30 +92,39 @@ class _AlbaranesDetalleWidgetState extends State<AlbaranesDetalleWidget> {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      FFLocalizations.of(context).getText(
-                        '22s9bzjd' /* Albaranes */,
-                      ),
-                      style:
-                          FlutterFlowTheme.of(context).headlineMedium.override(
+                    Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Text(
+                          FFLocalizations.of(context).getText(
+                            '22s9bzjd' /* Albarán: */,
+                          ),
+                          style: FlutterFlowTheme.of(context)
+                              .headlineMedium
+                              .override(
                                 fontFamily: 'Outfit',
                                 color: Colors.white,
                                 fontSize: 28.0,
                               ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
-                      child: Text(
-                        DetalleDeAlbaranesCall.numeroDeAlbaran(
-                          albaranesDetalleDetalleDeAlbaranesResponse.jsonBody,
-                        ).toString(),
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
-                              color: Colors.white,
-                              fontSize: 16.0,
-                            ),
-                      ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              5.0, 0.0, 0.0, 0.0),
+                          child: Text(
+                            DetalleDeAlbaranesCall.numeroDeAlbaran(
+                              albaranesDetalleDetalleDeAlbaranesResponse
+                                  .jsonBody,
+                            ).toString(),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Readex Pro',
+                                  color: Colors.white,
+                                  fontSize: 16.0,
+                                ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -422,7 +431,7 @@ class _AlbaranesDetalleWidgetState extends State<AlbaranesDetalleWidget> {
                                                       height: MediaQuery.sizeOf(
                                                                   context)
                                                               .height *
-                                                          0.3,
+                                                          0.35,
                                                       decoration: BoxDecoration(
                                                         color: FlutterFlowTheme
                                                                 .of(context)

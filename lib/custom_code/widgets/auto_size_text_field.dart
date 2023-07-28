@@ -36,6 +36,7 @@ class AutoSizeTextField extends StatefulWidget {
 class _AutoSizeTextFieldState extends State<AutoSizeTextField> {
   @override
   Widget build(BuildContext context) {
+    // Esto comprueba dos booleanos, si tiene que ir hacia a la derecha y si es dark mode. Por ello, hay un total de 4 resultados.
     if (this.widget.isRight == true && this.widget.isDarkMode == false) {
       return Row(mainAxisAlignment: MainAxisAlignment.end, children: [
         AutoSizeText(

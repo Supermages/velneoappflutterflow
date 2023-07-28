@@ -1231,28 +1231,6 @@ class _ParteDetalleWidgetState extends State<ParteDetalleWidget> {
                                                           action: () async {
                                                             var _shouldSetState =
                                                                 false;
-                                                            await showDialog(
-                                                              context: context,
-                                                              builder:
-                                                                  (alertDialogContext) {
-                                                                return AlertDialog(
-                                                                  title: Text(
-                                                                      'Test'),
-                                                                  content: Text(
-                                                                      FFAppState()
-                                                                          .test),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed:
-                                                                          () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                      child: Text(
-                                                                          'Pa ver si sale algo'),
-                                                                    ),
-                                                                  ],
-                                                                );
-                                                              },
-                                                            );
                                                             if (FFAppState()
                                                                     .img ==
                                                                 '') {
@@ -1347,28 +1325,6 @@ class _ParteDetalleWidgetState extends State<ParteDetalleWidget> {
                                                           action: () async {
                                                             var _shouldSetState =
                                                                 false;
-                                                            await showDialog(
-                                                              context: context,
-                                                              builder:
-                                                                  (alertDialogContext) {
-                                                                return AlertDialog(
-                                                                  title: Text(
-                                                                      'Test'),
-                                                                  content: Text(
-                                                                      FFAppState()
-                                                                          .test),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed:
-                                                                          () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                      child: Text(
-                                                                          'Pa ver si sale algo'),
-                                                                    ),
-                                                                  ],
-                                                                );
-                                                              },
-                                                            );
                                                             if (FFAppState()
                                                                     .img ==
                                                                 '') {
@@ -1477,28 +1433,6 @@ class _ParteDetalleWidgetState extends State<ParteDetalleWidget> {
                                                           action: () async {
                                                             var _shouldSetState =
                                                                 false;
-                                                            await showDialog(
-                                                              context: context,
-                                                              builder:
-                                                                  (alertDialogContext) {
-                                                                return AlertDialog(
-                                                                  title: Text(
-                                                                      'Test'),
-                                                                  content: Text(
-                                                                      FFAppState()
-                                                                          .test),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed:
-                                                                          () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                      child: Text(
-                                                                          'Pa ver si sale algo'),
-                                                                    ),
-                                                                  ],
-                                                                );
-                                                              },
-                                                            );
                                                             if (FFAppState()
                                                                     .img ==
                                                                 '') {
@@ -1593,28 +1527,6 @@ class _ParteDetalleWidgetState extends State<ParteDetalleWidget> {
                                                           action: () async {
                                                             var _shouldSetState =
                                                                 false;
-                                                            await showDialog(
-                                                              context: context,
-                                                              builder:
-                                                                  (alertDialogContext) {
-                                                                return AlertDialog(
-                                                                  title: Text(
-                                                                      'Test'),
-                                                                  content: Text(
-                                                                      FFAppState()
-                                                                          .test),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed:
-                                                                          () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                      child: Text(
-                                                                          'Pa ver si sale algo'),
-                                                                    ),
-                                                                  ],
-                                                                );
-                                                              },
-                                                            );
                                                             if (FFAppState()
                                                                     .img ==
                                                                 '') {

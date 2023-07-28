@@ -49,11 +49,13 @@ class ImagenGaleria3 extends StatefulWidget {
 }
 
 class _ImagenGaleria3State extends State<ImagenGaleria3> {
+  // Definimos las variables generales
   var imagenBase64Interna = null;
   int numeroDeImagenInterno = 0;
   int tempId_ = 0;
   @override
   void initState() {
+    // Definimos una variable para la funcion ponerImagen, la cual se inicia junto al widget.
     imagenBase64Interna = this.widget.imagenBase64;
     ponerImagen();
     super.initState();
@@ -61,21 +63,23 @@ class _ImagenGaleria3State extends State<ImagenGaleria3> {
 
   @override
   void dispose() {
+    // Saca todo de las variables que requieren definirlas durante la aplicacion. Esto sucede al cerrar la pagina.
     archivo = null;
     numeroDeImagenInterno = 0;
     tempId_ = 0;
     super.dispose();
   }
 
+  // Esto pone la imagen nada mas iniciar el parte, si hay una. Si no, pondra una de placeholder.
   void ponerImagen() async {
+    // Definimos variables
     tempId_ = this.widget.id;
     numeroDeImagenInterno = this.widget.numeroDeImagen;
+    // Convertimos el base64 de la imagen, debido a que se guarda asi en la base de datos, en una imagen.
     archivo = await convertimagen.convertBase64File(
         imagenBase64Interna ?? enCasoNull,
         "imagen$tempId_$numeroDeImagenInterno.png");
-    FFAppState().update(() {
-      FFAppState().test = "$archivo" + imagenBase64Interna ?? enCasoNull;
-    });
+    // Ponemos la imagen
     setState(() {});
   }
 
@@ -87,9 +91,10 @@ class _ImagenGaleria3State extends State<ImagenGaleria3> {
     return IconButton(
       iconSize: 200,
       onPressed: () async {
+        // Espera a la funcion de seleccion de imagen al presionar la misma.
         await selectImage();
         setState(() {});
-      },
+      }, // Pone la imagen, todo dependiendo en el resultado de las funciones anteriores
       icon: selectedImagePath.isEmpty
           ? Image.file(
               archivo!,
@@ -102,6 +107,7 @@ class _ImagenGaleria3State extends State<ImagenGaleria3> {
     );
   }
 
+  // Esta funcion permitira seleccionar una imagen a partir de galeria o de una camara.
   Future<void> selectImage() async {
     showDialog(
       context: context,
@@ -127,25 +133,23 @@ class _ImagenGaleria3State extends State<ImagenGaleria3> {
                   children: [
                     GestureDetector(
                       onTap: () async {
+                        // Aqui espera a que seleccione la imagen de la galeria
                         selectedImagePath = await selectImageFromGallery();
                         if (selectedImagePath.isNotEmpty) {
                           try {
-                            FFAppState().update(() {
-                              FFAppState().test = selectedImagePath;
-                            });
+                            // Coloca el resultado y manda el base64 a la base de datos.
                             Navigator.pop(context);
                             setState(() {});
-                            // Convierte el archivo a Base64
-                            //File file = File(selectedImagePath);
-                            //log("PATATA:$file");
                           } catch (e) {
                             print("Error: $e");
                           }
                           imagenPreFinal ==
                               convertimagen
                                   .convertUbFileBase64(selectedImagePath);
+                          // Llama la accion encargada de enviar los datos a la base de datos.
                           await this.widget.action.call();
                         } else {
+                          // Si no hay, da mensaje de error
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                                 content: Text(
@@ -171,10 +175,11 @@ class _ImagenGaleria3State extends State<ImagenGaleria3> {
                     ),
                     GestureDetector(
                       onTap: () async {
+                        // Aqui espera a que seleccione la imagen de la galeria
                         selectedImagePath = await selectImageFromCamera();
                         if (selectedImagePath.isNotEmpty) {
                           try {
-                            FFAppState().test = selectedImagePath;
+                            // Coloca el resultado y manda el base64 a la base de datos.
                             Navigator.pop(context);
                             setState(() {});
                           } catch (e) {
@@ -183,8 +188,10 @@ class _ImagenGaleria3State extends State<ImagenGaleria3> {
                           imagenPreFinal ==
                               convertimagen
                                   .convertUbFileBase64(selectedImagePath);
+                          // Llama la accion encargada de enviar los datos a la base de datos.
                           await this.widget.action.call();
                         } else {
+                          // Si no hay, da mensaje de error
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                                 content: Text(
@@ -218,76 +225,97 @@ class _ImagenGaleria3State extends State<ImagenGaleria3> {
     );
   }
 
+  // Esta funcion selecciona la imagen desde la galeria
   Future<String> selectImageFromGallery() async {
+    // Aqui abre la galeria y espera a que la selecciones
     final XFile? file = await ImagePicker().pickImage(
       source: ImageSource.gallery,
       imageQuality: 10,
     );
+    // Envia el resultado
     return file?.path ?? "";
   }
 
+  // Esta funcion selecciona la imagen desde la galeria
   Future<String> selectImageFromCamera() async {
+    // Aqui abre la galeria y espera a que la selecciones
     final XFile? file = await ImagePicker().pickImage(
       source: ImageSource.camera,
       imageQuality: 10,
     );
+    // Envia el resultado
     return file?.path ?? "";
   }
 }
 
 class ConvertImages {
   const ConvertImages();
-  //esta classe convertira de base64 a file
+  // Esta clase convierte imagenes a base 64 y viceversa.
 
-  //convertir de file a base64
-  //
+  // Convierte un base 64 en un archivo
   Future<File> convertBase64File(String txtBase64, String nombreArchivo) async {
     try {
+      // Aqui pilla el camino del archivo y lo define
       String directorio = (await getApplicationDocumentsDirectory()).path;
       File archivo = File("$directorio/$nombreArchivo");
+      // Le pone los bytes, siendo la imagen como tal, al archivo
       archivo.writeAsBytesSync(base64.decode(txtBase64));
+      // Devuelve el archivo
       return archivo;
     } catch (e) {
-      print("Error ${e.toString()}");
+      // En el caso de que falle, devuelve un placeholder
       return File("assets/icon/icon.png");
     }
   }
 
+  // Aqui devuelve un string, siendo el archivo como tal.
+
   Future<String> convertBase64UbFile(
       String txtBase64, String nombreArchivo) async {
     try {
+      // Aqui pilla el camino del archivo y lo define
       String directorio = (await getApplicationDocumentsDirectory()).path;
       String ub = "$directorio/$nombreArchivo";
       File archivo = File(ub);
+      // Le pone los bytes, siendo la imagen como tal, al archivo
       archivo.writeAsBytesSync(base64.decode(txtBase64));
+      // Devuelve el archivo
       return ub;
     } catch (e) {
-      print("Error ${e.toString()}");
+      // En el caso de que falle, devuelve un placeholder
       return "assets/icon/icon.png";
     }
   }
 
+  // Esto convierte un string de un archivo, en un string de base64
+
   String convertUbFileBase64(String ub) {
     try {
-      print("${File(ub).readAsBytes()}");
+      // Aqui, define el appstate de img, el que contendra el base64. Y le pone el base64 del archivo.
       FFAppState().update(() {
         FFAppState().img = base64.encode(File(ub).readAsBytesSync());
       });
+      // Devuelve un base64.
       return base64.encode(File(ub).readAsBytesSync());
     } catch (e) {
-      print("Error ${e.toString()}");
+      // En el caso de que falle, devuelve un placeholder
       return exBase64;
     }
   }
 
+  // Esto convierte un archivo en un string de base64
+
   String convertFileBase64(File file) {
     try {
-      print("${file.readAsBytes()}");
+      // Aqui, define el appstate de img, el que contendra el base64. Y le pone el base64 del archivo.
+      FFAppState().update(() {
+        FFAppState().img = base64.encode(file.readAsBytesSync());
+      });
+      // Devuelve un base64.
       return base64.encode(file.readAsBytesSync());
     } catch (e) {
-      print("Error ${e.toString()}");
+      // En el caso de que falle, devuelve un placeholder
       return exBase64;
     }
   }
-  //convertir una ubicación de file a
 }

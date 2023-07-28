@@ -29,6 +29,7 @@ class _ImagenEntradaBlancoState extends State<ImagenEntradaBlanco> {
   Widget build(BuildContext context) {
     return Row(
       children: [
+        // Coloca una imagen segun el appstate de logoTempo
         Image.file(
           File(FFAppState().logoTempo),
           fit: BoxFit.fill,

@@ -11,6 +11,7 @@ import 'package:flutter/services.dart';
 
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE
 Future exitTheApp() async {
+  // Permite cerrar la aplicacion de una forma diferente.
   await SystemChannels.platform.invokeMethod('SystemNavigator.pop');
 }
 // Set your action name, define your arguments and return parameter,
