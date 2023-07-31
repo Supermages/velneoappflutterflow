@@ -230,7 +230,7 @@ class _ImagenGaleria4State extends State<ImagenGaleria4> {
     // Aqui abre la galeria y espera a que la selecciones
     final XFile? file = await ImagePicker().pickImage(
       source: ImageSource.gallery,
-      imageQuality: 10,
+      imageQuality: 50,
     );
     // Envia el resultado
     return file?.path ?? "";
@@ -241,7 +241,7 @@ class _ImagenGaleria4State extends State<ImagenGaleria4> {
     // Aqui abre la galeria y espera a que la selecciones
     final XFile? file = await ImagePicker().pickImage(
       source: ImageSource.camera,
-      imageQuality: 10,
+      imageQuality: 50,
     );
     // Envia el resultado
     return file?.path ?? "";

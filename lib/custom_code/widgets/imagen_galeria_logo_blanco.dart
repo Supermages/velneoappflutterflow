@@ -108,7 +108,7 @@ class _ImagenGaleriaLogoBlancoState extends State<ImagenGaleriaLogoBlanco> {
     // Esto abre la galeria y te da la posibilidad de seleccionar la imagen
     final XFile? file = await ImagePicker().pickImage(
       source: ImageSource.gallery,
-      imageQuality: 10,
+      imageQuality: 50,
     );
     // Despues, retorna el camino a tu imagen en tu dispositivo.
     return file?.path ?? "";
